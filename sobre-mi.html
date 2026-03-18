@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cursor-pro.css">
+</head>
+<body class="page-intro">
+  <nav class="nav-fixed">
+    <a href="index.html">Inicio</a>
+    <a class="active" href="sobre-mi.html">Sobre mí</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="habilidades.html">Habilidades</a>
+    <a href="tesis.html">Tesis</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <main class="page">
+    <div class="tech-lines"><span class="dot one"></span><span class="dot two"></span></div>
+    <div class="dots-top"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="dots-bottom">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="small-line"></div>
+    <div class="corner-rings"></div>
+    <section class="content about-layout">
+      <div class="photo-system">
+        <div class="arc-ring"></div>
+        <div class="photo-glow"></div>
+        <div class="photo-round"><img src="assets/foto.png" alt="Leonardo"></div>
+        
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">Sobre mí</span>
+        <h1>LEONARDO YAEL SANDOVAL RAMOS</h1>
+        <div class="role">ESTUDIANTE DE INGENIERÍA EN SISTEMAS COMPUTACIONALES</div>
+        <div class="desc">Aspirante a profesional enfocado en diseñar, desarrollar y optimizar software, hardware y redes con una visión técnica, ordenada y orientada al crecimiento constante.</div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <span>Enfoque</span>
+            <strong>Desarrollo y optimización</strong>
+          </div>
+          <div class="highlight-card">
+            <span>Perfil</span>
+            <strong>Aprendizaje continuo</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer">Derechos reservados © 2026 Leonardo Yael</div>
+  </main>
+
+  <a class="home-float" href="index.html" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 10.5V19h10v-8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Inicio</span>
+  </a>
+
+  <div class="page-arrows" aria-label="Navegación entre secciones">
+    <a class="page-arrow" data-prev href="#" aria-label="Página anterior">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="page-arrow" data-next href="#" aria-label="Página siguiente">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+    (function () {
+      const pages = ['sobre-mi.html', 'cursos.html', 'habilidades.html', 'tesis.html', 'contacto.html'];
+      const current = window.location.pathname.split('/').pop() || 'sobre-mi.html';
+      const index = pages.indexOf(current);
+      if (index === -1) return;
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      const setState = (el, href, disabled) => {
+        if (!el) return;
+        if (disabled) {
+          el.href = '#';
+          el.classList.add('is-disabled');
+          el.setAttribute('aria-disabled', 'true');
+        } else {
+          el.href = href;
+          el.classList.remove('is-disabled');
+          el.removeAttribute('aria-disabled');
+        }
+      };
+      setState(prev, pages[index - 1], index === 0);
+      setState(next, pages[index + 1], index === pages.length - 1);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' && index > 0) window.location.href = pages[index - 1];
+        if (e.key === 'ArrowRight' && index < pages.length - 1) window.location.href = pages[index + 1];
+      });
+    })();
+  </script>
+
+  <script src="animations.js"></script>
+  <script src="cursor-pro.js"></script>
+</body>
+</html>

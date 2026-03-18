@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habilidades</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/skills.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cursor-pro.css">
+</head>
+<body class="page-intro">
+  <nav class="nav-fixed">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="cursos.html">Cursos</a>
+    <a class="active" href="habilidades.html">Habilidades</a>
+    <a href="tesis.html">Tesis</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <main class="page">
+    <section class="content skills-wrap">
+      <div class="skills-head">
+        <h1 class="section-title">HABILIDADES</h1>
+        <p class="section-subtitle">Conocimientos y habilidades adquiridas.</p>
+      </div>
+      <article class="skills-card metrics-card">
+        <div class="skills-columns">
+          <div class="skill-col">
+            <div class="skill-item">
+              <div class="skill-head"><h3>HTML / CSS</h3><span>92%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="92" style="--target:92%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-head"><h3>JavaScript</h3><span>84%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="84" style="--target:84%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-head"><h3>UI / UX</h3><span>88%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="88" style="--target:88%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-col">
+            <div class="skill-item">
+              <div class="skill-head"><h3>Documentación</h3><span>78%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="78" style="--target:78%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-head"><h3>Trabajo en equipo</h3><span>94%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="94" style="--target:94%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-head"><h3>Comunicación</h3><span>90%</span></div>
+              <div class="skill-track"><div class="skill-fill" data-level="90" style="--target:90%"></div></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="footer">Derechos reservados © 2026 Leonardo Yael</div>
+  </main>
+
+  <a class="home-float" href="index.html" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 10.5V19h10v-8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Inicio</span>
+  </a>
+
+  <div class="page-arrows" aria-label="Navegación entre secciones">
+    <a class="page-arrow" data-prev href="#" aria-label="Página anterior">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="page-arrow" data-next href="#" aria-label="Página siguiente">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+    (function () {
+      const pages = ['sobre-mi.html', 'cursos.html', 'habilidades.html', 'tesis.html', 'contacto.html'];
+      const current = window.location.pathname.split('/').pop() || 'sobre-mi.html';
+      const index = pages.indexOf(current);
+      if (index === -1) return;
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      const setState = (el, href, disabled) => {
+        if (!el) return;
+        if (disabled) {
+          el.href = '#';
+          el.classList.add('is-disabled');
+          el.setAttribute('aria-disabled', 'true');
+        } else {
+          el.href = href;
+          el.classList.remove('is-disabled');
+          el.removeAttribute('aria-disabled');
+        }
+      };
+      setState(prev, pages[index - 1], index === 0);
+      setState(next, pages[index + 1], index === pages.length - 1);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' && index > 0) window.location.href = pages[index - 1];
+        if (e.key === 'ArrowRight' && index < pages.length - 1) window.location.href = pages[index + 1];
+      });
+    })();
+  </script>
+
+  <script src="animations.js"></script>
+  <script src="cursor-pro.js"></script>
+  <script src="skills.js"></script>
+</body>
+</html>

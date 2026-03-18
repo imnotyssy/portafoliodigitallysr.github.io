@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesis</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/tesis.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cursor-pro.css">
+</head>
+<body class="page-intro">
+  <nav class="nav-fixed">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="habilidades.html">Habilidades</a>
+    <a class="active" href="tesis.html">Tesis</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <main class="page">
+    <section class="content thesis-wrap">
+      <aside class="panel thesis-intro">
+        <span class="thesis-badge">Proyecto académico</span>
+        <h1 class="thesis-title">TESIS<br>NUTRIFAV</h1>
+        <p class="thesis-copy">Sistema web para optimizar el control nutricional, el registro clínico y el seguimiento de pacientes.</p>
+
+        <div class="thesis-points">
+          <div class="thesis-point">
+            <span>Problema</span>
+            <strong>Procesos manuales, demoras y riesgo de errores en registros y cálculos.</strong>
+          </div>
+          <div class="thesis-point">
+            <span>Objetivo</span>
+            <strong>Digitalizar pacientes, historiales, IMC, planes y progreso nutricional.</strong>
+          </div>
+          <div class="thesis-point">
+            <span>Tecnologías</span>
+            <strong>HTML5, CSS3, PHP, base de datos local y gráficas de seguimiento.</strong>
+          </div>
+        </div>
+      </aside>
+
+      <section class="thesis-shell">
+        <div class="thesis-card">
+          <div class="thesis-head">
+            <div>
+              <h2 class="section-title">RESUMEN</h2>
+              <p class="section-subtitle">Lo más importante del proyecto de forma breve y visual.</p>
+            </div>
+          </div>
+
+          <div class="thesis-grid">
+            <div class="thesis-summary">
+              <div class="summary-item">
+                <h3>Funciones clave</h3>
+                <p>Registro de pacientes, historial clínico, planes alimenticios personalizados y consultas más ágiles.</p>
+              </div>
+              <div class="summary-item">
+                <h3>Automatización</h3>
+                <p>Cálculo de IMC e indicadores antropométricos para reducir errores y ahorrar tiempo operativo.</p>
+              </div>
+              <div class="summary-item">
+                <h3>Valor del sistema</h3>
+                <p>Mejora la organización, permite seguimiento visual del progreso y fortalece la atención nutricional.</p>
+              </div>
+            </div>
+
+            <div class="thesis-preview-wrap">
+              <button class="thesis-preview" type="button" onclick="openModal()" aria-label="Ver imagen de la tesis">
+                <img src="assets/tesis-preview.png" alt="Vista previa del proyecto NutriFav">
+              </button>
+              <div class="thesis-actions">
+                <button class="thesis-btn" type="button" onclick="openModal()">Ver imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div id="imgModal" class="img-modal" onclick="closeModal()">
+      <div class="img-modal-inner" onclick="event.stopPropagation()">
+        <button class="img-modal-close" type="button" onclick="closeModal()" aria-label="Cerrar ampliación">×</button>
+        <img src="assets/tesis-preview.png" alt="Vista ampliada del proyecto NutriFav">
+      </div>
+    </div>
+
+    <div class="footer">Derechos reservados © 2026 Leonardo Yael</div>
+  </main>
+
+  <a class="home-float" href="index.html" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 10.5V19h10v-8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Inicio</span>
+  </a>
+
+  <div class="page-arrows" aria-label="Navegación entre secciones">
+    <a class="page-arrow" data-prev href="#" aria-label="Página anterior">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="page-arrow" data-next href="#" aria-label="Página siguiente">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      const pages = ['sobre-mi.html', 'cursos.html', 'habilidades.html', 'tesis.html', 'contacto.html'];
+      const current = window.location.pathname.split('/').pop() || 'sobre-mi.html';
+      const index = pages.indexOf(current);
+      if (index === -1) return;
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      const setState = (el, href, disabled) => {
+        if (!el) return;
+        if (disabled) {
+          el.href = '#';
+          el.classList.add('is-disabled');
+          el.setAttribute('aria-disabled', 'true');
+        } else {
+          el.href = href;
+          el.classList.remove('is-disabled');
+          el.removeAttribute('aria-disabled');
+        }
+      };
+      setState(prev, pages[index - 1], index === 0);
+      setState(next, pages[index + 1], index === pages.length - 1);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' && index > 0) window.location.href = pages[index - 1];
+        if (e.key === 'ArrowRight' && index < pages.length - 1) window.location.href = pages[index + 1];
+      });
+    })();
+
+    function openModal() {
+      document.getElementById('imgModal').classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+    }
+  </script>
+  <script src="animations.js"></script>
+  <script src="cursor-pro.js"></script>
+</body>
+</html>

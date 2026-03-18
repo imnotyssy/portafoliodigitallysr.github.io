@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos y certificaciones</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cursor-pro.css">
+</head>
+<body class="page-intro">
+  <nav class="nav-fixed">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a class="active" href="cursos.html">Cursos</a>
+    <a href="habilidades.html">Habilidades</a>
+    <a href="tesis.html">Tesis</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <main class="page">
+    <section class="content courses-wrap">
+      <div class="courses-head">
+        <h1 class="section-title">CURSOS Y CERTIFICACIONES</h1>
+        <p class="section-subtitle">Presentación visual más limpia y profesional para mostrar aprendizaje, certificaciones y preparación técnica.</p>
+      </div>
+      <div class="cards-shell">
+        <div class="cards-grid">
+          <article class="course-card">
+            <button class="course-media" type="button" onclick="openCourseModal('assets/insignia.png','Insignia Cisco Python Essentials 2')" aria-label="Ampliar insignia Cisco Python Essentials 2">
+              <img class="course-thumb" src="assets/insignia.png" alt="Insignia Cisco Python Essentials 2">
+            </button>
+            <div class="course-body">
+              <span class="course-tag">Insignia</span>
+              <h3>Cisco Python Essentials 2</h3>
+              <p>Reconocimiento visual del dominio de fundamentos y continuidad en Python.</p>
+            </div>
+            <div class="course-actions">
+              <button class="course-btn" type="button" onclick="openCourseModal('assets/insignia.png','Insignia Cisco Python Essentials 2')">Ver imagen</button>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <button class="course-media" type="button" onclick="openCourseModal('assets/certificado.png','Certificado Cisco Python Essentials 2')" aria-label="Ampliar certificado Cisco Python Essentials 2">
+              <img class="course-thumb" src="assets/certificado.png" alt="Certificado Cisco Python Essentials 2">
+            </button>
+            <div class="course-body">
+              <span class="course-tag">Certificado</span>
+              <h3>Certificado Cisco Python 2</h3>
+              <p>Documento oficial que respalda la formación y el avance académico en Python.</p>
+            </div>
+            <div class="course-actions">
+              <button class="course-btn" type="button" onclick="openCourseModal('assets/certificado.png','Certificado Cisco Python Essentials 2')">Ver imagen</button>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <button class="course-media" type="button" onclick="openCourseModal('assets/pottencia.png','Curso Potencia tu carrera')" aria-label="Ampliar curso Potencia tu carrera">
+              <img class="course-thumb pot" src="assets/pottencia.png" alt="Curso Potencia tu carrera">
+            </button>
+            <div class="course-body">
+              <span class="course-tag">Curso</span>
+              <h3>Curso Pottencia</h3>
+              <p>Capacitación orientada al crecimiento profesional y fortalecimiento del perfil laboral.</p>
+            </div>
+            <div class="course-actions">
+              <button class="course-btn" type="button" onclick="openCourseModal('assets/pottencia.png','Curso Potencia tu carrera')">Ver imagen</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    
+    </section>
+
+    <div id="courseImgModal" class="img-modal" onclick="closeCourseModal()">
+      <div class="img-modal-inner" onclick="event.stopPropagation()">
+        <button class="img-modal-close" type="button" onclick="closeCourseModal()" aria-label="Cerrar ampliación">×</button>
+        <img id="courseModalImage" src="" alt="Vista ampliada del curso">
+      </div>
+    </div>
+
+    <div class="footer">Derechos reservados © 2026 Leonardo Yael</div>
+  </main>
+
+  <a class="home-float" href="index.html" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 10.5V19h10v-8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Inicio</span>
+  </a>
+
+  <div class="page-arrows" aria-label="Navegación entre secciones">
+    <a class="page-arrow" data-prev href="#" aria-label="Página anterior">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="page-arrow" data-next href="#" aria-label="Página siguiente">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+
+    function openCourseModal(src, altText) {
+      const modal = document.getElementById('courseImgModal');
+      const img = document.getElementById('courseModalImage');
+      if (!modal || !img) return;
+      img.src = src;
+      img.alt = altText || 'Vista ampliada del curso';
+      modal.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeCourseModal() {
+      const modal = document.getElementById('courseImgModal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+    }
+
+    (function () {
+      const pages = ['sobre-mi.html', 'cursos.html', 'habilidades.html', 'tesis.html', 'contacto.html'];
+      const current = window.location.pathname.split('/').pop() || 'sobre-mi.html';
+      const index = pages.indexOf(current);
+      if (index === -1) return;
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      const setState = (el, href, disabled) => {
+        if (!el) return;
+        if (disabled) {
+          el.href = '#';
+          el.classList.add('is-disabled');
+          el.setAttribute('aria-disabled', 'true');
+        } else {
+          el.href = href;
+          el.classList.remove('is-disabled');
+          el.removeAttribute('aria-disabled');
+        }
+      };
+      setState(prev, pages[index - 1], index === 0);
+      setState(next, pages[index + 1], index === pages.length - 1);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCourseModal();
+        if (e.key === 'ArrowLeft' && index > 0) window.location.href = pages[index - 1];
+        if (e.key === 'ArrowRight' && index < pages.length - 1) window.location.href = pages[index + 1];
+      });
+    })();
+  </script>
+
+  <script src="animations.js"></script>
+  <script src="cursor-pro.js"></script>
+</body>
+</html>

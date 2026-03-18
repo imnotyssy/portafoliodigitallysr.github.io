@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cursor-pro.css">
+</head>
+<body class="page-intro">
+  <nav class="nav-fixed">
+    <a href="index.html">Inicio</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="habilidades.html">Habilidades</a>
+    <a href="tesis.html">Tesis</a>
+    <a class="active" href="contacto.html">Contacto</a>
+  </nav>
+  <main class="page">
+    <section class="content contact-wrap">
+      <aside class="panel contact-intro">
+        <button class="contact-badge easter-trigger" type="button" aria-label="Contacto">Contacto</button>
+        <h1 class="contact-title">CONTACTO<br>DIRECTO</h1>
+        <p class="contact-copy">Puedes contactarme por teléfono, correo o dejar tus datos en este formulario.</p>
+
+        <div class="contact-points">
+          <div class="contact-point">
+            <span>Teléfono</span>
+            <a href="tel:+525626371093">562 637 1093</a>
+          </div>
+          <div class="contact-point">
+            <span>Correo</span>
+            <a href="mailto:yael-1985@outlook.com">yael-1985@outlook.com</a>
+          </div>
+          <div class="contact-point">
+            <span>Ubicación</span>
+            <strong>Valle de Chalco, Estado de México</strong>
+          </div>
+        </div>
+      </aside>
+
+      <section class="contact-shell">
+        <div class="contact-card">
+          <h2 class="section-title">FORMULARIO</h2>
+          <p class="section-subtitle">Déjame tus datos y tu mensaje.</p>
+
+          <form class="contact-form" action="mailto:yael-1985@outlook.com" method="post" enctype="text/plain">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="Telefono" type="tel" placeholder="Tu teléfono">
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="correo">Correo</label>
+                <input id="correo" name="Correo" type="email" placeholder="Tu correo" required>
+              </div>
+              <div class="field">
+                <label for="asunto">Asunto</label>
+                <input id="asunto" name="Asunto" type="text" placeholder="Asunto">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="Mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+            </div>
+
+            <p class="form-note">También puedes escribirme directo por teléfono o correo.</p>
+
+            <div class="contact-actions">
+              <button class="btn-solid" type="submit">Enviar</button>
+              <a class="btn-outline" href="mailto:yael-1985@outlook.com">Correo</a>
+            </div>
+
+            <div class="contact-mini">
+              <a href="tel:+525626371093">Llamar</a>
+              <a href="mailto:yael-1985@outlook.com">Escribir</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </section>
+    
+    
+    <div id="miniGameModal" class="mini-game-modal" aria-hidden="true">
+      <div class="mini-game-card" onclick="event.stopPropagation()">
+        <button class="mini-game-close" type="button" onclick="closeMiniGame()" aria-label="Cerrar juego">×</button>
+        <div class="mini-game-head">
+          <span class="mini-game-pill">Easter egg</span>
+          <h3>Mini juego</h3>
+          <p>Toca o presiona espacio para mantener el punto flotando y pasar entre las barras.</p>
+        </div>
+        <div class="mini-game-stats">
+          <div><span>Puntos</span><strong id="gameScore">0</strong></div>
+          <div><span>Récord</span><strong id="gameBest">0</strong></div>
+          <div><span>Estado</span><strong id="gameState">Listo</strong></div>
+        </div>
+        <div id="gameArea" class="mini-game-area flappy-area">
+          <div id="flappyBird" class="flappy-bird"></div>
+          <div id="gameStartOverlay" class="mini-game-overlay">
+            <p>Haz clic en iniciar y luego toca la pantalla o presiona espacio para volar.</p>
+            <button class="mini-game-start" type="button" onclick="startMiniGame()">Iniciar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Derechos reservados © 2026 Leonardo Yael</div>
+
+  </main>
+
+  <a class="home-float" href="index.html" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 10.5V19h10v-8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Inicio</span>
+  </a>
+
+  <div class="page-arrows" aria-label="Navegación entre secciones">
+    <a class="page-arrow" data-prev href="#" aria-label="Página anterior">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="page-arrow" data-next href="#" aria-label="Página siguiente">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <script>
+    (function () {
+      const pages = ['sobre-mi.html', 'cursos.html', 'habilidades.html', 'tesis.html', 'contacto.html'];
+      const current = window.location.pathname.split('/').pop() || 'sobre-mi.html';
+      const index = pages.indexOf(current);
+      if (index === -1) return;
+      const prev = document.querySelector('[data-prev]');
+      const next = document.querySelector('[data-next]');
+      const setState = (el, href, disabled) => {
+        if (!el) return;
+        if (disabled) {
+          el.href = '#';
+          el.classList.add('is-disabled');
+          el.setAttribute('aria-disabled', 'true');
+        } else {
+          el.href = href;
+          el.classList.remove('is-disabled');
+          el.removeAttribute('aria-disabled');
+        }
+      };
+      setState(prev, pages[index - 1], index === 0);
+      setState(next, pages[index + 1], index === pages.length - 1);
+      [prev, next].forEach((el) => {
+        if (!el) return;
+        el.addEventListener('click', (event) => {
+          if (el.classList.contains('is-disabled')) event.preventDefault();
+        });
+      });
+    })();
+  </script>
+  <script src="animations.js"></script>
+  <script src="cursor-pro.js"></script>
+
+  
+  <script>
+    let gameRunning = false;
+    let gameOver = false;
+    let score = 0;
+    let best = Number(localStorage.getItem('miniGameBest') || 0);
+    let birdY = 160;
+    let birdV = 0;
+    let gravity = 0.42;
+    let flap = -6.9;
+    let pipes = [];
+    let frameId = null;
+    let spawnTimer = 0;
+
+    const gameModal = () => document.getElementById('miniGameModal');
+    const gameArea = () => document.getElementById('gameArea');
+    const bird = () => document.getElementById('flappyBird');
+    const scoreEl = () => document.getElementById('gameScore');
+    const bestEl = () => document.getElementById('gameBest');
+    const stateEl = () => document.getElementById('gameState');
+    const overlayEl = () => document.getElementById('gameStartOverlay');
+
+    function openMiniGame() {
+      gameModal().classList.add('is-open');
+      document.body.classList.add('modal-open');
+      gameModal().setAttribute('aria-hidden', 'false');
+      bestEl().textContent = String(best);
+      resetMiniGame();
+    }
+
+    function closeMiniGame() {
+      gameModal().classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      gameModal().setAttribute('aria-hidden', 'true');
+      stopLoop();
+      resetMiniGame();
+    }
+
+    function stopLoop() {
+      if (frameId) cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+
+    function resetMiniGame() {
+      stopLoop();
+      gameRunning = false;
+      gameOver = false;
+      score = 0;
+      birdY = 160;
+      birdV = 0;
+      spawnTimer = 0;
+      scoreEl().textContent = '0';
+      stateEl().textContent = 'Listo';
+      bestEl().textContent = String(best);
+      bird().style.top = birdY + 'px';
+      bird().style.transform = 'rotate(0deg)';
+      pipes.forEach(p => p.el.remove());
+      pipes = [];
+      overlayEl().innerHTML = '<p>Haz clic en iniciar y luego toca la pantalla o presiona espacio para volar.</p><button class="mini-game-start" type="button" onclick="startMiniGame()">Iniciar</button>';
+      overlayEl().classList.remove('is-hidden');
+    }
+
+    function startMiniGame() {
+      resetMiniGame();
+      overlayEl().classList.add('is-hidden');
+      gameRunning = true;
+      stateEl().textContent = 'Jugando';
+      loop();
+    }
+
+    function flapBird() {
+      if (!gameRunning || gameOver) return;
+      birdV = flap;
+    }
+
+    function createPipe() {
+      const area = gameArea();
+      const gap = 112;
+      const minTop = 42;
+      const maxTop = area.clientHeight - gap - 120;
+      const topHeight = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+      const bottomY = topHeight + gap;
+
+      const pipeWrap = document.createElement('div');
+      pipeWrap.className = 'pipe-pair';
+      pipeWrap.style.left = area.clientWidth + 'px';
+
+      const pipeTop = document.createElement('div');
+      pipeTop.className = 'pipe pipe-top';
+      pipeTop.style.height = topHeight + 'px';
+
+      const pipeBottom = document.createElement('div');
+      pipeBottom.className = 'pipe pipe-bottom';
+      pipeBottom.style.top = bottomY + 'px';
+      pipeBottom.style.height = (area.clientHeight - bottomY) + 'px';
+
+      pipeWrap.appendChild(pipeTop);
+      pipeWrap.appendChild(pipeBottom);
+      area.appendChild(pipeWrap);
+
+      pipes.push({ el: pipeWrap, x: area.clientWidth, passed: false, top: topHeight, gap: gap });
+    }
+
+    function hitTest(pipe) {
+      const birdX = 74;
+      const birdSize = 28;
+      const pipeWidth = 54;
+      const birdTop = birdY;
+      const birdBottom = birdY + birdSize;
+      const gapTop = pipe.top;
+      const gapBottom = pipe.top + pipe.gap;
+
+      const overlapX = birdX + birdSize > pipe.x && birdX < pipe.x + pipeWidth;
+      const overlapY = birdTop < gapTop || birdBottom > gapBottom;
+      return overlapX && overlapY;
+    }
+
+    function endGame() {
+      gameOver = true;
+      gameRunning = false;
+      stateEl().textContent = 'Fin';
+      if (score > best) {
+        best = score;
+        localStorage.setItem('miniGameBest', String(best));
+      }
+      bestEl().textContent = String(best);
+      overlayEl().innerHTML = '<p>Lograste <strong>' + score + '</strong> puntos.</p><button class="mini-game-start" type="button" onclick="startMiniGame()">Jugar otra vez</button>';
+      overlayEl().classList.remove('is-hidden');
+    }
+
+    function loop() {
+      if (!gameRunning) return;
+      const area = gameArea();
+      birdV += gravity;
+      birdY += birdV;
+
+      if (birdY < 0) {
+        birdY = 0;
+        birdV = 0;
+      }
+      if (birdY > area.clientHeight - 28) {
+        birdY = area.clientHeight - 28;
+        bird().style.top = birdY + 'px';
+        bird().style.transform = 'rotate(85deg)';
+        endGame();
+        return;
+      }
+
+      bird().style.top = birdY + 'px';
+      bird().style.transform = 'rotate(' + Math.max(-28, Math.min(85, birdV * 8)) + 'deg)';
+
+      spawnTimer++;
+      if (spawnTimer > 110) {
+        spawnTimer = 0;
+        createPipe();
+      }
+
+      pipes.forEach(pipe => {
+        pipe.x -= 2.4;
+        pipe.el.style.left = pipe.x + 'px';
+
+        if (!pipe.passed && pipe.x + 54 < 74) {
+          pipe.passed = true;
+          score += 1;
+          scoreEl().textContent = String(score);
+        }
+
+        if (hitTest(pipe)) {
+          endGame();
+        }
+      });
+
+      pipes = pipes.filter(pipe => {
+        if (pipe.x < -70) {
+          pipe.el.remove();
+          return false;
+        }
+        return true;
+      });
+
+      if (gameRunning) frameId = requestAnimationFrame(loop);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = gameModal();
+      const trigger = document.querySelector('.easter-trigger');
+      let tapCount = 0;
+      let tapTimer = null;
+
+      if (modal) modal.addEventListener('click', closeMiniGame);
+
+      if (trigger) {
+        trigger.addEventListener('click', function () {
+          tapCount += 1;
+          clearTimeout(tapTimer);
+          tapTimer = setTimeout(function () { tapCount = 0; }, 1200);
+          if (tapCount >= 3) {
+            tapCount = 0;
+            clearTimeout(tapTimer);
+            openMiniGame();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeMiniGame();
+        if (e.code === 'Space') {
+          if (modal.classList.contains('is-open')) {
+            e.preventDefault();
+            if (!gameRunning && !gameOver && overlayEl().classList.contains('is-hidden')) return;
+            if (gameRunning) flapBird();
+          }
+        }
+      });
+
+      const area = gameArea();
+      area.addEventListener('mousedown', function () {
+        if (gameRunning) flapBird();
+      });
+      area.addEventListener('touchstart', function (e) {
+        if (gameRunning) {
+          e.preventDefault();
+          flapBird();
+        }
+      }, { passive: false });
+    });
+  </script>
+
+</body>
+</html>
