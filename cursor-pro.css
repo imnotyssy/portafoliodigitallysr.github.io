@@ -1,0 +1,96 @@
+
+/* Cursor pro */
+html, body{
+  cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring{
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.cursor-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.98) 0%, rgba(102,200,255,.95) 65%, rgba(102,200,255,.25) 100%);
+  box-shadow:
+    0 0 12px rgba(102,200,255,.55),
+    0 0 28px rgba(102,200,255,.22);
+}
+
+.cursor-ring{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(102,200,255,.52);
+  background: radial-gradient(circle, rgba(102,200,255,.12), rgba(102,200,255,.02) 60%, transparent 72%);
+  box-shadow:
+    inset 0 0 16px rgba(102,200,255,.08),
+    0 0 28px rgba(102,200,255,.14);
+  backdrop-filter: blur(3px);
+  transition:
+    width .22s cubic-bezier(.22,1,.36,1),
+    height .22s cubic-bezier(.22,1,.36,1),
+    border-color .22s cubic-bezier(.22,1,.36,1),
+    background .22s cubic-bezier(.22,1,.36,1),
+    box-shadow .22s cubic-bezier(.22,1,.36,1),
+    opacity .22s ease;
+}
+
+.cursor-ring.is-hover{
+  width: 54px;
+  height: 54px;
+  border-color: rgba(125,220,255,.78);
+  background: radial-gradient(circle, rgba(102,200,255,.16), rgba(102,200,255,.04) 66%, transparent 76%);
+  box-shadow:
+    inset 0 0 20px rgba(102,200,255,.10),
+    0 0 36px rgba(102,200,255,.24);
+}
+
+.cursor-ring.is-click{
+  width: 28px;
+  height: 28px;
+  border-color: rgba(255,255,255,.92);
+  box-shadow:
+    0 0 0 8px rgba(102,200,255,.10),
+    0 0 28px rgba(102,200,255,.20);
+}
+
+.cursor-trail{
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(102,200,255,.16);
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
+  animation: cursorTrailFade .55s linear forwards;
+}
+
+@keyframes cursorTrailFade{
+  from{ opacity:.9; transform: translate(-50%, -50%) scale(1); }
+  to{ opacity:0; transform: translate(-50%, -50%) scale(.2); }
+}
+
+a, button, [role="button"], input, textarea, select, .course-media, .thesis-preview{
+  cursor: none !important;
+}
+
+@media (hover: none), (pointer: coarse){
+  html, body,
+  a, button, [role="button"], input, textarea, select, .course-media, .thesis-preview{
+    cursor: auto !important;
+  }
+  .cursor-dot, .cursor-ring, .cursor-trail{
+    display: none !important;
+  }
+}
